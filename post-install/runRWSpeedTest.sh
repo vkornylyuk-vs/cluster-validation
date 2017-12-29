@@ -23,6 +23,7 @@ MFS_TEST_JAR=$(find $MAPR_HOME/lib -name maprfs-diagnostic-tools-\*.jar)
 nproc=$(grep -c ^processor /proc/cpuinfo)
 ((nproc=nproc/2))
 #TBD Try setting number of Java processes to number of data drives
+nproc=$1
 
 # Find the available MapR disk space on this node
 fsize=$(/opt/mapr/server/mrconfig sp list | awk '/totalfree/{print $9}')
